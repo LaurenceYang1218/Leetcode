@@ -13,11 +13,13 @@ public:
                 vowelsPos.push_back(i);
             }
         }
+
         reverse(vowels.begin(), vowels.end());
         int vowelsCnt = 0;
         for (auto it = vowelsPos.begin(); it != vowelsPos.end(); it++) {
             s[*it] = vowels[vowelsCnt++];
         }
+        
         return s;
     }
 };
