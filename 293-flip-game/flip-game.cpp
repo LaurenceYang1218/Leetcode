@@ -11,7 +11,6 @@ public:
                 nextState = currentState.substr(0, i) + "--" + currentState.substr(i+2);
                 ans.push_back(nextState);
             }
-            
         }
         return ans;
     }
