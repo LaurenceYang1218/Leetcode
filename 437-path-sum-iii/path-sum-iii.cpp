@@ -27,10 +27,12 @@ public:
         numMap[currSum]++;
         traverse(root->left, currSum);
         traverse(root->right, currSum);
-        if (numMap[currSum] == 0)
+        if (numMap[currSum] == 0) {
             numMap.erase(currSum);
-        else 
+        } else { 
             numMap[currSum]--;
+        }
+        return;
     }   
 
     int pathSum(TreeNode* root, int targetSum) {
