@@ -50,6 +50,7 @@ public:
                 dfs(i, j, mat[i][j], mat, visited, -1);            
             }
         }
+        
         vector<pair<int, int>> freqVec(freqMap.begin(), freqMap.end());
         sort(freqVec.begin(), freqVec.end(), [&](pair<int, int> p1, pair<int, int> p2) {
             if (p1.second != p2.second) {
@@ -62,7 +63,6 @@ public:
         if (freqVec.size() != 0) {
             return freqVec.begin()->first;
         }
-
         return -1;
     }
 };
