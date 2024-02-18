@@ -3,6 +3,19 @@ public:
     unordered_map<int, int> freqMap;
     vector<vector<int>> dirs = {{-1, -1}, {-1, 0}, {-1, 1}, {0, -1}, {0, 1}, {1, -1}, {1, 0}, {1, 1}};
     
+    bool isPrime(int num) {
+        if (num == 0 || num == 1) {
+            return false;
+        }
+
+        for (int i = 2; i <= num/2; ++i) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     void dfs(int row, int col, int currNum, vector<vector<int>> mat, vector<vector<bool>> visited, int currDir) {
         if (isPrime(currNum) && currNum > 10) {
             freqMap[currNum]++;
@@ -28,21 +41,7 @@ public:
         }
     }
     
-    bool isPrime(int num) {
-        if (num == 0 || num == 1) {
-            return false;
-        }
-
-        for (int i = 2; i <= num/2; ++i) {
-            if (num % i == 0) {
-                return false;
-            }
-        }
-        return true;
-    }
-    
     int mostFrequentPrime(vector<vector<int>>& mat) {
-        
         for (int i = 0; i < mat.size(); i++) {
             for (int j = 0; j < mat[0].size(); j++) {
                 vector<vector<bool>> visited(mat.size(), vector<bool>(mat[0].size(), false));
