@@ -21,7 +21,6 @@ public:
             for (int i = 0; i < qLen; i++) {
                 TreeNode *curr = treeQ.front();
                 treeQ.pop();
-                cout << tempVal << " " << curr->val << '\n';
                 if (level % 2 == 0) {
                     if (curr->val % 2 == 0 || curr->val <= tempVal) {
                         return false;
