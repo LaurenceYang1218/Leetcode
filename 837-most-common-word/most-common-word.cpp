@@ -12,7 +12,6 @@ public:
     }
     
     string mostCommonWord(string paragraph, vector<string>& banned) {
-        stringstream ss(paragraph);
         unordered_map<string, int> freqMap;
         size_t prev = 0, pos;
         string str;
@@ -30,9 +29,7 @@ public:
             filter(str);
             freqMap[str]++;
         }
-        for (auto it : freqMap) {
-            cout << it.first << " " << it.second << '\n';
-        }
+
         vector<pair<string, int>> freqList(freqMap.begin(), freqMap.end());
         sort(freqList.begin(), freqList.end(), [](pair<string, int>& p1, pair<string, int>& p2){
             return p1.second > p2.second;
