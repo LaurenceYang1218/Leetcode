@@ -17,9 +17,6 @@ public:
             }
         });
 
-        for (auto it : freqVec) {
-            cout << it.first << " " << it.second << '\n'; 
-        }
         vector<int> res;
         for (auto it : freqVec) {
             for (int cnt = 0; cnt < it.second; cnt++) {
