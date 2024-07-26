@@ -5,22 +5,17 @@ public:
         int cnt = 1, loopCnt = 0;
         
         for (int idx = n-1; idx > 0; idx -= 2) {
-            cout << idx << '\n';
             for (int j = 0; j < idx; j++) {
                 res[loopCnt][j+loopCnt] = cnt++;
-                cout << loopCnt << ' ' << j+loopCnt << '\n';
             }
             for (int j = 0; j < idx; j++) {
                 res[j+loopCnt][n-1-loopCnt] = cnt++;
-                cout << j+loopCnt << ' ' << n-1-loopCnt << '\n';
             }
             for (int j = idx; j >= 1; j--) {
                 res[n-1-loopCnt][j+loopCnt] = cnt++;
-                cout << n-1-loopCnt << ' ' << j+loopCnt << '\n';
             }
             for (int j = idx; j >= 1; j--) {
                 res[j+loopCnt][loopCnt] = cnt++;
-                cout << j+loopCnt << ' ' << loopCnt << '\n';
             }
             loopCnt++;
         }
