@@ -9,15 +9,15 @@ public:
                 cntMap[arr[i]]++;
             }
         }
-        vector<int> arrIdx;
-        for (auto it : cntMap) {
-            if (it.second == 1) {
-                arrIdx.push_back((find(arr.begin(), arr.end(), it.first)-arr.begin()));
+        vector<string> distinctStrs;
+        for (size_t i = 0; i < arr.size(); i++) {
+            if (cntMap[arr[i]] == 1) {
+                distinctStrs.push_back(arr[i]);
             }
         }
-        sort(arrIdx.begin(), arrIdx.end());
-        if (k-1 >= arrIdx.size())
+        if (k-1 >= distinctStrs.size()) {
             return "";
-        return arr[arrIdx[k-1]];
-    }
+        }
+        return distinctStrs[k-1];
+    }   
 };
