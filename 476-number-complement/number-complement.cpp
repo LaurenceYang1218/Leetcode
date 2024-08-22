@@ -7,7 +7,6 @@ public:
             cntBinary++;
             tmpNum >>= 1;
         }
-        cout << cntBinary << endl;
         unsigned int mask = (1ull << cntBinary) - 1;
 
         return mask - num;
