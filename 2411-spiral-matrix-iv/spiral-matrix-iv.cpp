@@ -15,9 +15,10 @@ public:
         ListNode* curr = head;
         vector<vector<int>> dirs = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
         int dirCnt = 0;
-        int idx = 0, jdx = 0;
+        int idx = 0, jdx = 0, dirX, dirY;
         while (curr) {
-            int dirX = dirs[dirCnt][0], dirY = dirs[dirCnt][1];
+            dirX = dirs[dirCnt][0];
+            dirY = dirs[dirCnt][1];
             res[idx][jdx] = curr->val;
             if (idx + dirX < 0 || idx + dirX >= m || jdx + dirY < 0 || jdx + dirY >= n || res[idx+dirX][jdx+dirY] != -1) {
                 dirCnt = (dirCnt + 1) % 4;
