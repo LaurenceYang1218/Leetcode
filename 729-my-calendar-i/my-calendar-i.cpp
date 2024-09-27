@@ -4,10 +4,15 @@ public:
     MyCalendar() {
         
     }
-    
+
+    inline bool isOverlaped(pair<int, int> p1, pair<int, int> p2) {
+        return max(p1.first, p2.first) < min(p1.second, p2.second);
+    }
+
     bool book(int start, int end) {
         for (auto it : dates) {
-            if (start < it.second && end > it.first) {
+            // if (start < it.second && end > it.first) {
+            if (isOverlaped(it, {start, end})) {
                 return false;
             }
         }
