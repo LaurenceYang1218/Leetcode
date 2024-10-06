@@ -1,7 +1,7 @@
 class Solution {
 public:
     void dfs(int root, vector<vector<int>>& graph, set<int>& suspicious) {
-        if (suspicious.count(root)) {
+        if (suspicious.find(root) != suspicious.end()) {
             return;
         }
         suspicious.insert(root);
@@ -30,7 +30,7 @@ public:
         }
         
         for (int i = 0; i < n; i++) {
-            if (!suspicious.count(i)) {
+            if (suspicious.find(i) == suspicious.end()) {
                 ret.push_back(i);
             }
         }
