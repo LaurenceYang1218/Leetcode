@@ -9,7 +9,6 @@ public:
             if (__builtin_popcount(nums[i]) == currBits) {
                 currMaxNum = max(currMaxNum, nums[i]);
                 currMinNum = min(currMinNum, nums[i]);
-                cout << currMinNum << " " << currMaxNum << endl;
             }else {
                 if (currMinNum < prevMaxNum) {
                     return false;
