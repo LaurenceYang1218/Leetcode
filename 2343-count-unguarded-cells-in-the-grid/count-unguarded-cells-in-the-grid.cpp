@@ -1,19 +1,12 @@
 class Solution {
 public:
-    void dfs(int x, int y, int m, int n, vector<vector<int>>& grid, char dir) {
+    void dfs(int x, int y, int m, int n, vector<vector<int>>& grid, vector<int>& dir) {
         if (x < 0 || x >= m || y < 0 || y >= n || grid[x][y] == 2 || grid[x][y] == 3) {
             return;
         }
         grid[x][y] = 1;
-        if (dir == 'U')
-            dfs(x, y-1, m, n, grid, 'U');
-        if (dir == 'D')
-            dfs(x, y+1, m, n, grid, 'D');
-        if (dir == 'L')
-            dfs(x-1, y, m, n, grid, 'L');
-        if (dir == 'R')
-            dfs(x+1, y, m, n, grid, 'R');
-                        
+        int nx = x + dir[0], ny = y + dir[1];
+        dfs(nx, ny, m, n, grid, dir);
         return;
     }
     int countUnguarded(int m, int n, vector<vector<int>>& guards, vector<vector<int>>& walls) {
@@ -27,12 +20,17 @@ public:
             int x = walls[i][0], y = walls[i][1];
             grids[x][y] = 3;
         }
+        vector<vector<int>> dirs = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
         for (int i = 0; i < gsz; i++) {
             int x = guards[i][0], y = guards[i][1]; 
-            dfs(x, y-1, m, n, grids, 'U');  
-            dfs(x, y+1, m, n, grids, 'D');
-            dfs(x-1, y, m, n, grids, 'L');
-            dfs(x+1, y, m, n, grids, 'R');
+            for (auto dir : dirs) {
+                int nx = x + dir[0], ny = y + dir[1];
+                dfs(nx, ny, m, n, grids, dir);
+            }
+            // dfs(x, y-1, m, n, grids, 'U');  
+            // dfs(x, y+1, m, n, grids, 'D');
+            // dfs(x-1, y, m, n, grids, 'L');
+            // dfs(x+1, y, m, n, grids, 'R');
         }
         int cnt = 0;
         for (int i = 0; i < m; i++) {
