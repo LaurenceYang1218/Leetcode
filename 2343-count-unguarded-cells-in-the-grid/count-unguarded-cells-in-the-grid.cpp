@@ -9,6 +9,7 @@ public:
         dfs(nx, ny, m, n, grid, dir);
         return;
     }
+    
     int countUnguarded(int m, int n, vector<vector<int>>& guards, vector<vector<int>>& walls) {
         vector<vector<int>> grids(m, vector<int>(n, 0));
         int gsz = guards.size(), wsz = walls.size();
@@ -27,10 +28,6 @@ public:
                 int nx = x + dir[0], ny = y + dir[1];
                 dfs(nx, ny, m, n, grids, dir);
             }
-            // dfs(x, y-1, m, n, grids, 'U');  
-            // dfs(x, y+1, m, n, grids, 'D');
-            // dfs(x-1, y, m, n, grids, 'L');
-            // dfs(x+1, y, m, n, grids, 'R');
         }
         int cnt = 0;
         for (int i = 0; i < m; i++) {
