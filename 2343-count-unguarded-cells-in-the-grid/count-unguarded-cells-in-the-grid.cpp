@@ -20,7 +20,7 @@ public:
             int x = walls[i][0], y = walls[i][1];
             grids[x][y] = 3;
         }
-        vector<vector<int>> dirs = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+        vector<vector<int>> dirs = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
         for (int i = 0; i < gsz; i++) {
             int x = guards[i][0], y = guards[i][1]; 
             for (auto dir : dirs) {
